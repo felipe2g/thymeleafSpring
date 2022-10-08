@@ -15,6 +15,7 @@
             <td th:text="${professor.nome}"></td>
             <td th:text="${professor.nome}">Felipe</td>
             <td><a th:text="Excluir" th:href="@{/professor/delete(id=*{professor.id})}"></a></td>
+            <td><a th:text="Alterar" th:href="@{/professor/update(id=*{professor.id})}"></a></td>
         </tr>
       </tbody>
   </table>
