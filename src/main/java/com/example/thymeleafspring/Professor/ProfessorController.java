@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -20,6 +21,20 @@ public class ProfessorController {
         List<Professor> professores = jdbc.query("SELECT id, nome from professor", (rs, rowNum) -> new Professor(rs.getLong("id"), rs.getString("nome")));
         model.addAttribute("professores", professores);
 
-        return "professor";
+        return "professor/professor";
+    }
+
+    @GetMapping("novo")
+    public String getShowProfessorForm(Model model) {
+        model.addAttribute("professor", new Professor());
+        return "professor/novo";
+    }
+
+    @PostMapping("novo")
+    public String postProfessor(Professor professor) {
+        System.out.println("PROFESSOR => " + professor.getNome());
+        jdbc.update("INSERT INTO professor(nome) VALUES (?)", professor.getNome());
+
+        return "redirect:/professor/novo";
     }
 }

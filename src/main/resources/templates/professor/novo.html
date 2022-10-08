@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" th:object="${professor}" action="novo">
+        <div class="form-group">
+            <label for="inputNome">Nome</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="inputNome"
+                    placeholder="Nome"
+                    th:field="*{nome}"
+            >
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
+</html>
