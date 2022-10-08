@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,9 +30,14 @@ public class ProfessorController {
 
     @PostMapping("novo")
     public String postProfessor(Professor professor) {
-        System.out.println("PROFESSOR => " + professor.getNome());
         jdbc.update("INSERT INTO professor(nome) VALUES (?)", professor.getNome());
 
         return "redirect:/professor/novo";
+    }
+
+    @GetMapping("delete")
+    public String excluirProf(@RequestParam(value = "id", required = true) Integer cod) {
+        jdbc.update("delete from professor where id = ?", cod);
+        return "redirect:/professor";
     }
 }
