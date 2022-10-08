@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" th:include="professor/template :: modelo" xmlns:th="http://www.thymeleaf.org">
 <body>
-<form method="post" th:object="${professor}" action="updateProfessor">
-    <div class="form-group">
-        <label for="id">id</label>
-        <input type="text" id="id" readonly th:field="*{id}">
+<form method="post" th:object="${professor}" action="updateProfessor" th:fragment="conteudo">
+    <div>
+        <div class="mb-3">
+            <label for="id" class="form-label">Id</label>
+            <input type="text" class="form-control" id="id" readonly th:field="*{id}">
+        </div>
 
-        <label for="inputNome">Nome</label>
-        <input
-                type="text"
-                class="form-control"
-                id="inputNome"
-                placeholder="Nome"
-                th:field="*{nome}"
-        >
+        <div class="mb-3">
+            <label for="inputNome" class="form-label">Nome</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="inputNome"
+                    placeholder="Nome"
+                    th:field="*{nome}"
+            >
+        </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

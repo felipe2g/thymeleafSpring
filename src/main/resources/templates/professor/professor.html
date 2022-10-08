@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" th:include="professor/template :: modelo" xmlns:th="http://www.thymeleaf.org">
 <body>
-  <table>
+  <table th:fragment="conteudo" class="table">
       <thead>
         <th>Id</th>
         <th>Nome</th>
       </thead>
       <tbody>
         <tr th:each="professor : ${professores}">
-            <td th:text="${professor.nome}"></td>
+            <td th:text="${professor.id}"></td>
             <td th:text="${professor.nome}">Felipe</td>
             <td><a th:text="Excluir" th:href="@{/professor/delete(id=*{professor.id})}"></a></td>
             <td><a th:text="Alterar" th:href="@{/professor/update(id=*{professor.id})}"></a></td>

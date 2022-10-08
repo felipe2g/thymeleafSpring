@@ -58,8 +58,6 @@ public class ProfessorController {
 
     @PostMapping("updateProfessor")
     public String postUpdateProfessor(Professor professor) {
-        System.out.println("professor.getnome => " + professor.getNome());
-        System.out.println("professor.getId => " + professor.getId());
         jdbc.update("UPDATE professor set nome = ? where id = ?",
                 professor.getNome(),
                 professor.getId());

@@ -1,11 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" th:include="professor/template :: modelo" xmlns:th="http://www.thymeleaf.org">
 <body>
-    <form method="post" th:object="${professor}" action="novo">
+    <form method="post" th:object="${professor}" action="novo" th:fragment="conteudo">
         <div class="form-group">
             <label for="inputNome">Nome</label>
             <input
