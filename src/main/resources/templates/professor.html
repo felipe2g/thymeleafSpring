@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,9 +11,9 @@
         <th>Nome</th>
       </thead>
       <tbody>
-        <tr>
-            <td>1</td>
-            <td>Felipe</td>
+        <tr th:each="professor : ${professores}">
+            <td th:text="${professor.nome}"></td>
+            <td th:text="${professor.nome}">Felipe</td>
         </tr>
       </tbody>
   </table>
